@@ -10,7 +10,7 @@ namespace MvcEventosExamenAWS.Services
 
         public ServiceApiEventos(KeysModel keys)
         {
-            this.UrlApi = keys.ApiPeliculas;
+            this.UrlApi = keys.ApiEventos;
             this.header = new MediaTypeWithQualityHeaderValue("application/json");
         }
 
