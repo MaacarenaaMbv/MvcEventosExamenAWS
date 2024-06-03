@@ -1,60 +1,44 @@
-﻿@model IEnumerable<MvcEventosExamenAWS.Models.Evento>
+﻿@model List<Evento>
 
 @{
-    ViewData["Title"] = "Index";
+    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
 }
 
-<h1>Eventos AWS Api Gateway</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="Eventos"
+       asp-action="Index">Volver a Index</a>
 </p>
-<table class="table">
+
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Artista)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCategoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagen)
-            </th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>IdCategoria</th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEvento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artista)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCategoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
-            <td>
-                    <a asp-controller="Eventos"
-                       asp-action="Details"
-                       asp-route-id="@item.IdEvento"
-                       class="btn btn-success">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    @foreach(Evento e in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    <img src="@UrlBucket@e.Imagen" class="card-img-top" alt="..." style="width:70px; height: 80px" />
+                </td>
+                <td>
+                    @e.Nombre
+                </td>
+                <td>
+                    @e.Artista
+                </td>
+                <td>
+                    @e.IdCategoria
+                </td>
+                <td>
+                    <a asp-asp-controller="Eventos" asp-action="Details" asp-route-id="@e.IdEvento" class="btn btn-outline-success">Details</a>
+                </td>
+            </tr>
+        </tbody>
+    }
 </table>

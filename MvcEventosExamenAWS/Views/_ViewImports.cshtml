@@ -1,3 +1,10 @@
-﻿@using MvcEventosExamenAWS
+﻿@inject IConfiguration configuration
+
+@{
+    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+}
+
+
+@using MvcEventosExamenAWS
 @using MvcEventosExamenAWS.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

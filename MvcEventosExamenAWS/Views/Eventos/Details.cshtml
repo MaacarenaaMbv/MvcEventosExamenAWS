@@ -1,48 +1,19 @@
-﻿@model MvcEventosExamenAWS.Models.Evento
+﻿@model Evento
 
 @{
-    ViewData["Title"] = "Details";
+    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
 }
 
-<h1>Details</h1>
+<p>
+    <a asp-controller="Eventos"
+       asp-action="Index">Volver a Index</a>
+</p>
 
-<div>
-    <h4>Evento</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEvento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEvento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Artista)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Artista)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCategoria)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCategoria)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imagen)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+<div class="card" style="width: 18rem;">
+    <img src="@UrlBucket@Model.Imagen" class="card-img-top" alt="..." style="width:70px; height: 80px"/>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nombre</h5>
+        <p class="card-text">@Model.Artista</p>
+        <p class="card-text">@Model.IdCategoria</p>
+    </div>
 </div>

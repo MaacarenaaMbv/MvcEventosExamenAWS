@@ -1,5 +1,10 @@
 ﻿@model List<Evento>
 
+@{
+    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+}
+
+
 <h1> Buscador Eventos por Categoria </h1>
 
 <p>
@@ -32,8 +37,8 @@
                 <td>@evento.Artista</td>
                 <td>@evento.IdCategoria</td>
                 <td>
-                        <img src="@evento.Imagen"
-                             style="width:70px; height: 80px" />
+                        <img src="@UrlBucket@evento.Imagen" class="card-img-top" alt="..." style="width:70px; height: 80px" />
+
                 </td>
             </tr>
         }
