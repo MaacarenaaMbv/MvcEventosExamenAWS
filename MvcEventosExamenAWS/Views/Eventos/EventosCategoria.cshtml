@@ -1,7 +1,7 @@
 ﻿@model List<Evento>
 
 @{
-    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+    string UrlBucket = keysModel.BucketUrl;
 }
 
 

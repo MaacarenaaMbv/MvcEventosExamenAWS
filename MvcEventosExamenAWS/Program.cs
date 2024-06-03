@@ -1,8 +1,14 @@
+using MvcEventosExamenAWS.Helpers;
+using MvcEventosExamenAWS.Models;
 using MvcEventosExamenAWS.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+string jsonSecrets = await HelperSecretManager.GetSecretsAsync();
+KeysModel keysModel = JsonConvert.DeserializeObject<KeysModel>(jsonSecrets);
+builder.Services.AddSingleton<KeysModel>(x => keysModel);
 builder.Services.AddTransient<ServiceApiEventos>();
 builder.Services.AddControllersWithViews();
 
