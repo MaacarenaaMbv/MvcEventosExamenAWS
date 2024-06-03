@@ -1,0 +1,44 @@
+﻿@model List<Evento>
+
+<h1> Buscador Eventos por Categoria </h1>
+
+<p>
+    <a asp-controller="Eventos"
+       asp-action="Index">Volver a Index</a>
+</p>
+
+<form method="post">
+    <label>Introduzca Id Categoria</label>
+    <input type="text" name="idcategoria" class="form-control" />
+    <button class="btn btn-info">Buscar Eventos</button>
+</form>
+
+<table class="table table-bordered table-warning">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>Categoria</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    @if (Model != null)
+    {
+    <tbody>
+        @foreach(Evento evento in Model)
+        {
+            <tr>
+                <td>@evento.Nombre</td>
+                <td>@evento.Artista</td>
+                <td>@evento.IdCategoria</td>
+                <td>
+                        <img src="@evento.Imagen"
+                             style="width:70px; height: 80px" />
+                </td>
+            </tr>
+        }
+    </tbody>
+    }
+</table>
+
+

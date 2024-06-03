@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcEventosExamenAWS", "MvcEventosExamenAWS\MvcEventosExamenAWS.csproj", "{4A9A9739-E583-4E2F-9A12-B02B3431ACC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A9A9739-E583-4E2F-9A12-B02B3431ACC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9A9739-E583-4E2F-9A12-B02B3431ACC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9A9739-E583-4E2F-9A12-B02B3431ACC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9A9739-E583-4E2F-9A12-B02B3431ACC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {378728DD-527D-4686-B261-DDBA55AA3835}
+	EndGlobalSection
+EndGlobal
